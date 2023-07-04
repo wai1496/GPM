@@ -1,0 +1,40 @@
+@startuml class
+
+class Usuario {
+    - ID
+    - nome
+    - email
+    - telefone
+    - redesSociais: <RedeSocial>
+    + cadastrarRedeSocial()
+    + deletarRedeSocial()
+    + editarRedeSocial()
+    + agendarPostagem()
+    + editarAgendamentoPostagem()
+    + deletarAgendamentoPostagem()
+    + editarVideo()
+    + criarShorts()
+}
+
+class RedeSocial {
+  - login
+  - senha
+}
+
+class Shorts {
+  - ID
+  - video: Video
+  - UsuarioID
+}
+
+class Video {
+    - ID
+    - link
+    - UsuarioID
+}
+
+Usuario --> RedeSocial : tem
+Usuario --> Shorts : cria
+Usuario --> Video : edita
+
+@enduml

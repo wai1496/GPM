@@ -1,0 +1,37 @@
+@startuml activity
+
+start
+
+:Verificar se o usuário tem cadastro existente?;
+if (Cadastro Existente?) then (sim)
+  :Acessar Tela de Login;
+else (não)
+  :Acessar Tela de Cadastro;
+endif
+
+if (Cadastro Bem Sucedido?) then (sim)
+  :Mostrar Mensagem de Cadastro Bem Sucedido;
+  :Acessar Tela de Login;
+endif
+
+:Preencher Formulário de Login;
+if (Login Válido?) then (sim)
+  :Acessar Área Logada;
+else (não)
+  :Mostrar Mensagem de Erro de Login;
+  stop
+endif
+
+if (Opção selecionada: Criar Shorts?) then (sim)
+  :Criar Shorts para um Vídeo;
+elseif (Opção selecionada: Editar Vídeo?) then (sim)
+  :Editar Vídeo;
+elseif (Opção selecionada: Publicar Conteúdo?) then (sim)
+  :Publicar Conteúdo;
+elseif (Opção selecionada: Agendar Publicações?) then (sim)
+  :Agendar Publicações;
+endif
+
+stop
+
+@enduml

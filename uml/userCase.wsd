@@ -1,0 +1,33 @@
+@startuml userCase
+
+left to right direction
+
+actor Usuário as usuario
+
+rectangle "Gerenciamento de Postagens" {
+  usecase "Verificar Cadastro Existente" as verificar_cadastro
+  usecase "Tela de Login" as tela_login
+  usecase "Tela de Cadastro" as tela_cadastro
+  usecase "Cadastro Bem Sucedido" as cadastro_sucesso
+  usecase "Área Logada" as area_logada
+  usecase "Criar Shorts para um Vídeo" as criar_shorts
+  usecase "Editar Vídeo" as editar_video
+  usecase "Publicar Conteúdo" as publicar_conteudo
+  usecase "Agendar Publicações" as agendar_publicacoes
+
+  usuario --> verificar_cadastro : Acessa
+
+  verificar_cadastro --> tela_login : Cadastro Existente
+  verificar_cadastro --> tela_cadastro : Novo Cadastro
+
+  tela_cadastro --> cadastro_sucesso : Cadastro Bem Sucedido
+
+  tela_login --> area_logada : Login Válido
+
+  area_logada --> criar_shorts : Criar Shorts
+  area_logada --> editar_video : Editar Vídeo
+  area_logada --> publicar_conteudo : Publicar Conteúdo
+  area_logada --> agendar_publicacoes : Agendar Publicações
+}
+
+@enduml
